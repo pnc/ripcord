@@ -1,0 +1,101 @@
+GIT
+  remote: https://github.com/pengwynn/octokit.git
+  revision: aee09bbbaf8d140a2ea3b27204aa74cfa2a722ca
+  tag: v0.6.5
+  specs:
+    octokit (0.6.5)
+      addressable (~> 2.2.6)
+      faraday (~> 0.7.4)
+      faraday_middleware (~> 0.7.0)
+      hashie (~> 1.2.0)
+      multi_json (~> 1.0.2)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionpack (3.2.1)
+      activemodel (= 3.2.1)
+      activesupport (= 3.2.1)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.1)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.1)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.1.2)
+    activemodel (3.2.1)
+      activesupport (= 3.2.1)
+      builder (~> 3.0.0)
+    activesupport (3.2.1)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    addressable (2.2.7)
+    backports (2.3.0)
+    bson (1.5.2)
+    bson_ext (1.5.2)
+      bson (= 1.5.2)
+    builder (3.0.0)
+    erubis (2.7.0)
+    eventmachine (0.12.10)
+    faraday (0.7.6)
+      addressable (~> 2.2)
+      multipart-post (~> 1.1)
+      rack (~> 1.1)
+    faraday_middleware (0.7.0)
+      faraday (~> 0.7.3)
+    haml (3.1.2)
+    hashie (1.2.0)
+    hike (1.2.1)
+    i18n (0.6.0)
+    journey (1.0.1)
+    mongo (1.5.2)
+      bson (= 1.5.2)
+    mongoid (2.4.4)
+      activemodel (~> 3.1)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
+    multi_json (1.0.4)
+    multipart-post (1.1.5)
+    oauth2 (0.5.2)
+      faraday (~> 0.7)
+      multi_json (~> 1.0)
+    rack (1.4.1)
+    rack-cache (1.1)
+      rack (>= 0.4)
+    rack-protection (1.2.0)
+      rack
+    rack-test (0.6.1)
+      rack (>= 1.0)
+    sinatra (1.3.2)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
+    sinatra-contrib (1.3.1)
+      backports (>= 2.0)
+      eventmachine
+      rack-protection
+      rack-test
+      sinatra (~> 1.3.0)
+      tilt (~> 1.3)
+    sinatra-reloader (1.0)
+      sinatra-contrib
+    sprockets (2.1.2)
+      hike (~> 1.2)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    tilt (1.3.3)
+    tzinfo (0.3.31)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  actionpack
+  activesupport
+  bson_ext
+  haml
+  mongoid
+  oauth2
+  octokit!
+  sinatra
+  sinatra-reloader

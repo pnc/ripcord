@@ -1,0 +1,27 @@
+%h1 What’s running?
+- helper = Object.new
+- helper.extend ActionView::Helpers::DateHelper
+- if apps.any?
+  %ul
+    - apps.each do |app|
+      %li
+        - deploy = app.deploys.last
+        %p
+          %span.name= app.name
+          %span.when= deploy ? "#{helper.time_ago_in_words(deploy.deployed_at)} ago" : "never deployed"
+          %span.repository{:id => app.name} #{app.repository || "click to add"}
+        - if deploy
+          %p
+            %span.sha= deploy.sha
+            %span.message= deploy.commit_message
+        - else
+          %p Unknown.
+- else
+  %p No apps have been deployed.
+  
+- if github
+  You should be nice to #{github.user}.
+- else
+  Let's get you
+  %a{:href => "/authorize"} authorized
+  to enable GitHub links.
