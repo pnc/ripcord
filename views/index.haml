@@ -2,24 +2,21 @@
 - helper = Object.new
 - helper.extend ActionView::Helpers::DateHelper
 - if apps.any?
-  %ul
+  %ul.apps
     - apps.each do |app|
-      %li
+      %li.app
         - deploy = app.deploys.last
-        %p
-          %span.name= app.name
-          %span.when= deploy ? "#{helper.time_ago_in_words(deploy.deployed_at)} ago" : "never deployed"
-          %span.repository{:id => app.name} #{app.repository || "click to add"}
+        %span.name= app.name
+        %span.when= deploy ? "#{helper.time_ago_in_words(deploy.deployed_at)} ago" : "never deployed"
+        %span.repository{:id => app.name} #{app.repository || "add username/repository"}
         - if deploy
-          %p
+          %p.deploy
             %span.sha= deploy.sha
             %span.message= deploy.commit_message
         - else
-          %p Unknown.
+          %p.deploy unknown
 - else
   %p No apps have been deployed.
   
 - unless github
-  Let's get you
-  %a{:href => "/authorize"} authorized
-  to enable GitHub links.
+  %a{:href => "/authorize", :class => "button"} Authorize GitHub Account

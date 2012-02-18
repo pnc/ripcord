@@ -90,7 +90,7 @@ class Deploy
         puts "ERROR: Unable to load commit message: #{e}"
       end
     else
-      "not available"
+      "Commit message not available."
     end
   end
 end
