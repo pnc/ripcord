@@ -31,7 +31,7 @@ class Authorization
     c.token = _token
     c.save
   end
-  
+
   def self.token
     if first && first.token
       first.token
@@ -39,7 +39,7 @@ class Authorization
       nil
     end
   end
-  
+
   def self.github
     if self.token
       Octokit::Client.new(:oauth_token => Authorization.token)
