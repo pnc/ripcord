@@ -59,6 +59,10 @@ class Application
   def self.[](name)
     where(:name => name).first || new({:name => name})
   end
+  
+  def has_repository?
+    repository.present?
+  end
 end
 
 class Deploy
@@ -69,6 +73,7 @@ class Deploy
   field :author_email, :type => String
   field :commit_message, :type => String
   field :deployed_at, :type => DateTime
+  field :branch, :type => String
   
   default_scope ascending(:deployed_at)
   
@@ -81,7 +86,7 @@ class Deploy
     github = Authorization.github
     if self[:commit_message]
       self[:commit_message]
-    elsif self.application.repository.present? && github
+    elsif self.application.has_repository? && github
       begin
         commit = github.commit(self.application.repository, self.sha).commit
         self[:commit_message] = commit.message
@@ -94,9 +99,38 @@ class Deploy
     end
   end
   
+  def commit_url
+    if application.has_repository?
+      "https://github.com/#{application.repository}/commit/#{self.sha}"
+    end
+  end
+  
   def safe_author
     author = self.author_email
     author ? author.split("@").first : "anonymous"
+  end
+  
+  def branch
+    github = Authorization.github
+    if self[:branch]
+      self[:branch]
+    elsif self.application.has_repository? && github
+      begin
+        branches = github.branches(self.application.repository)
+        branch = branches.find do |branch|
+          branch.commit.sha == self.sha
+        end
+        
+        if branch
+          self[:branch] = branch.name
+        end
+        self[:branch]
+      rescue Exception => e
+        puts "ERROR: Unable to load branch: #{e}"
+      end
+    else
+      nil
+    end
   end
 end
 

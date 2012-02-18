@@ -13,7 +13,12 @@
         %span.repository{:id => app.name} #{app.repository || "add username/repository"}
         - if deploy
           %p.deploy
-            %span.sha= deploy.sha
+            %span.sha
+              - if deploy.application.has_repository?
+                %a{:href => deploy.commit_url}= deploy.sha
+              - else
+                = deploy.sha
+            %span.branch= deploy.branch
             %span.message= deploy.commit_message
         - else
           %p.deploy unknown
