@@ -8,8 +8,8 @@ require 'action_view'
 require 'octokit'
 require 'oauth2'
 
-CLIENT_ID = "0717df89dbd037eb17e2"
-CLIENT_SECRET = "223f82069fcedc0598cf837d3e7b426be4a64c88"
+CLIENT_ID = ENV["OAUTH_CLIENT_ID"] || "0717df89dbd037eb17e2"
+CLIENT_SECRET = ENV["OAUTH_CLIENT_SECRET"] || "223f82069fcedc0598cf837d3e7b426be4a64c88"
 
 # MongoDB configuration
 Mongoid.configure do |config|
