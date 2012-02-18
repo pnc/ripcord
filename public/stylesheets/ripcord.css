@@ -30,3 +30,12 @@
 .deploy .message {
   display: block;
 }
+
+pre.commands {
+  background-color: #eee;
+  border: solid 1px #ddd;
+  font-family: "Andale Mono", monospace;
+  font-size: 10pt;
+  padding: 4px 8px;
+  overflow: auto;
+}

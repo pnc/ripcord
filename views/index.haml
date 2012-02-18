@@ -20,3 +20,9 @@
   
 - unless github
   %a{:href => "/authorize", :class => "button"} Authorize GitHub Account
+  
+%p 
+  Add an app to this list:
+  %pre.commands
+    heroku addons:add deployhooks:http \                                                                                                                                            
+    url=http://ripcordapp.herokuapp.com --app your-app-name
