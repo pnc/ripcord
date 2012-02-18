@@ -19,9 +19,7 @@
 - else
   %p No apps have been deployed.
   
-- if github
-  You should be nice to #{github.user}.
-- else
+- unless github
   Let's get you
   %a{:href => "/authorize"} authorized
   to enable GitHub links.

@@ -78,8 +78,17 @@ class Deploy
   end
   
   def commit_message
-    if self.application.repository.present?
+    github = Authorization.github
+    if self[:commit_message]
       self[:commit_message]
+    elsif self.application.repository.present? && github
+      begin
+        commit = github.commit(self.application.repository, self.sha).commit
+        self[:commit_message] = commit.message
+        self[:commit_message]
+      rescue Exception => e
+        puts "ERROR: Unable to load commit message: #{e}"
+      end
     else
       "not available"
     end
