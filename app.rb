@@ -93,6 +93,11 @@ class Deploy
       "Commit message not available."
     end
   end
+  
+  def safe_author
+    author = self.author_email
+    author ? author.split("@").first : "anonymous"
+  end
 end
 
 # Controllers

@@ -7,6 +7,8 @@
       %li.app
         - deploy = app.deploys.last
         %span.name= app.name
+        - if deploy
+          %span.who= deploy.safe_author
         %span.when= deploy ? "#{helper.time_ago_in_words(deploy.deployed_at)} ago" : "never deployed"
         %span.repository{:id => app.name} #{app.repository || "add username/repository"}
         - if deploy
