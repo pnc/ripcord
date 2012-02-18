@@ -1,0 +1,32 @@
+.container {
+  margin-top: 40px;
+}
+
+.apps {
+  margin-left: 20px;
+}
+
+.app > * {
+  padding-left: 10px;
+}
+
+.app .name {
+  padding-left: 0;
+  font-size: x-large;
+}
+
+.app .repository {
+  display: block;
+  width: 200px;
+  font-family: "Andale Mono", monospace;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.deploy {
+  margin-top: 10px;
+}
+
+.deploy .message {
+  display: block;
+}
