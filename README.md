@@ -52,4 +52,4 @@ Tell your Ripcord app about the Client ID and Client Secret you'll see displayed
     heroku config:add OAUTH_CLIENT_ID=id_from_github --app i-love-carrots
     heroku config:add OAUTH_CLIENT_SECRET=secret_from_github --app i-love-carrots
 
-Then, go to your Ripcord app and use the Authorize GitHub Account button to give Ripcord access your private repo.
+Then, go to your Ripcord app and use the Authorize GitHub Account button to give Ripcord access to your private repo.
