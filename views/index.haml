@@ -26,5 +26,6 @@
 %p 
   Add an app to this list:
   %pre.commands
-    heroku addons:add deployhooks:http \                                                                                                                                            
-    url=http://ripcordapp.herokuapp.com --app your-app-name
+    :preserve
+      heroku addons:add deployhooks:http \
+        url=http://#{request.host}/ --app your-app-name
